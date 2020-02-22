@@ -1,0 +1,530 @@
+/* Red - #db534d */
+/* Dark red - #b4061f */
+/* light gray - #aeaeae*/
+/* Gray - #c6c6c6 */
+/* Dark gray - #9d9c9c */
+/* Black - #404040 */
+
+/**
+* Main scroll
+**/
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background-color:#efefef;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 2px;
+  background-color:#db534d;
+}
+::-webkit-scrollbar-thumb:hover{
+  background-color: #b4061f;
+}
+/*
+*Ебем сетку
+*/
+.col-center{
+  padding-left: 35px;
+  padding-right: 25px;
+}
+/* main box */
+.col-box-content{
+  padding:0px 75px;
+}
+/* Header form name and number*/
+.form-red{
+
+}
+.form-red label{
+  font-size: .88pc;
+  color:#db534d;
+  white-space: nowrap;
+}
+.form-red .form-control{
+  font-size: .75pc;
+  border-radius: 0px;
+  border-style: none;
+  border-bottom: solid 1px #c6c6c6;
+  padding: .2rem 0rem;
+  color:#404040;
+}
+.form-red .form-control[readonly]{
+  color:#c6c6c6;
+  background-color: inherit;
+}
+.form-red .form-control:focus{
+  box-shadow: 0px 0px 0px;
+  border-bottom-color:  #db534d;
+}
+.form-red .form-control::placeholder{
+  color:#c6c6c6;
+}
+/* Style form */
+.base-box-form{
+
+}
+.base-box-form h5{
+  font-size: 18px;
+  margin-top: 3rem;
+  margin-bottom: .5rem;
+}
+/* Заказчик */
+.form-gray{
+  margin-top: 2.5rem;
+}
+.form-gray label{
+  font-size: .88pc;
+  color:#9d9c9c;
+  margin-bottom: .6rem;
+  white-space: nowrap;
+}
+.form-gray .form-control{
+  font-size: .75pc;
+  border-radius: 8px;
+  border-style: none;
+  border: solid 1px #c2c2c2;
+  padding: .2rem .8rem;
+  color: #404040;
+}
+.form-gray .form-control[readonly]{
+    background-color: inherit;
+    color: #c6c6c6;
+}
+.form-gray .form-control:focus {
+    box-shadow: 0 0 4px #db534d;
+    border-color: #db534d;
+}
+.form-gray .form-control::placeholder{
+  color:#c6c6c6;
+}
+/* Сроки заказа */
+.box-date-work{
+  display: inline-block;
+  height: auto;
+  width: auto;
+  margin-top: .8rem;
+}
+.box-date-work:last-child{
+  margin-top: .5rem;
+}
+.box-date-work .left-text-tag{
+  font-size: .75pc;
+  border-bottom: solid 1px #c6c6c6;
+  float: left;
+  padding: .2rem 0rem;
+  padding-right: .2rem;
+  color: #acabab;
+}
+.box-date-work .form-control{
+  border-radius: 0px;
+  border-style: none;
+  border-bottom: solid 1px #c6c6c6;
+  padding: .2rem 0rem;
+  color: #404040;
+  /*width: auto;*/
+  width: 75%;
+  float: left;
+}
+.box-date-work .form-control:focus{
+  box-shadow: 0px 0px 0px;
+}
+.box-date-form .form-gray{
+  margin-top: 2rem;
+}
+/* Price */
+.form-price .form-control[readonly]{
+  color: #c6c6c6;
+}
+.form-price .form-control{
+  background-color: inherit;
+}
+/* More info */
+.base-box-form .form-more .form-control{
+  width: 90%;
+}
+
+/*btn*/
+.btn-box .btn-def{
+  margin-left: 3em;
+}
+.btn-box .btn-def:focus{
+    outline-style:none;
+    box-shadow: 0 0 7px #b4061f;
+}
+.btn{
+  width: 9rem;
+  border-radius: 9px;
+  font-size: 12px;
+  padding: .1rem 0rem;
+  color:#404040;
+}
+
+.btn-war{
+  background-color:#db534d;
+  border-color:#db534d;
+  transition: .2s all;
+}
+.btn-box .btn-war:focus {
+    box-shadow: 0 0 7px #db534d;
+}
+.btn-war:hover {
+   background-color: #b4061f;
+   border-color: #b4061f;
+   color: #fff;
+   box-shadow: 0 0 7px #db534d;
+}
+
+.material-active span.btn.btn-def {
+    background-color: inherit;
+    border-color: #db534d;
+    transition: none;
+    cursor: default !important;
+    opacity: 0.75;
+}
+
+span.btn .btn-def .material-active .materials-2:hover {
+    background-color: #fff;
+    color: #404040;
+    border-color: #db534d;
+    box-shadow: none;
+}
+
+.btn-def{
+  background-color: inherit;
+  border-color:#db534d;
+  transition: .2s all;
+}
+.btn-def:hover{
+  background-color:#fff;
+  color:#404040;
+  border-color:#b4061f;
+  box-shadow:0 0 7px #b4061f;
+}
+/*checkbox*/
+.btn-box .form-check .form-check-label{
+  color:#db534d;
+  font-size: 14px;
+}
+.btn-box .form-check .form-check-label:after{
+  content: '';
+  display: block;
+  height: 13px;
+  width: 13px;
+  background-color: #fff;
+  border: solid 1px #c6c6c6;
+  position: absolute;
+  top: .39em;
+  border-radius: 3px;
+  left: 9.9em;
+}
+.btn-box .form-check .form-check-label:before{
+  content: '';
+  display: block;
+  height: 8px;
+  width: 8px;
+  background-color: #db534d;
+  position: absolute;
+  z-index: 1;
+  top: 8px;
+  border-radius: 3px;
+  left: 10.08em;
+}
+.btn-box .form-check .form-check-input{
+  margin: 0px;
+  margin-top: .4rem;
+  margin-left: .6rem;
+  display: none;
+}
+.btn-box .form-check {
+    padding-left: 3rem;
+}
+.material-group{
+  position: absolute;
+  z-index: 1;
+  width: 88%;
+}
+/*Material*/
+/* scroll material */
+.material-group .scroll-element::-webkit-scrollbar {
+  height: 7px;
+  position: relative;
+}
+.material-group .scroll-element::-webkit-scrollbar-track {
+  background-color:#dfdfdf;
+  border:1.5px solid #fff;
+  border-right-width: 8px;
+  border-left-width: 8px;
+  width: 3px;
+}
+.material-group .scroll-element::-webkit-scrollbar-thumb {
+  border-radius: 6px;
+  background-color:#db534d;
+}
+.material-group .scroll-element::-webkit-scrollbar-thumb:hover{
+  background-color: #b4061f;
+}
+
+.material-group .scroll-element{
+  overflow-x: scroll;
+  overflow-y: hidden;
+  position: relative;
+  padding: 5px;
+  white-space:nowrap;
+  padding-bottom: 10px;
+  height: 19.1rem;
+}
+.material-group .scroll-element .box-material{
+  padding: .5rem;
+  border-radius: 8px;
+  /*width: 95%;*/
+  width: 12rem;
+  margin-right: 1.5rem;
+  position: relative;
+}
+.material-group .scroll-element .box-material .form-control{
+  font-size: .65pc;
+  margin-bottom: 1.2rem;
+}
+.material-group .scroll-element  .box-material .group-form{
+  display: block;
+  height: 2rem;
+}
+.material-group .scroll-element  .box-material .group-form .form-control{
+  float: right;
+  width: 40%;
+}
+.material-group .scroll-element  .box-material .group-form .form-control:first-child{
+  width: 55%;
+  float: left;
+}
+.material-group .scroll-element  .box-material .btn-group{
+  display: block;
+  margin-bottom: .2rem;
+  padding: 0rem 1rem;
+  margin-top: 1.8rem;
+}
+.material-group .scroll-element  .box-material .btn-group .btn-def{
+  border-radius: 7px;
+  font-size: 9px;
+  width: auto;
+  padding: .1rem 1.3rem;
+}
+.material-group .scroll-element  .box-material .btn-group .round-btn{
+  display: inline-block;
+  float: right;
+  margin-top: .2rem;
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 20px;
+  transition: .2s all;
+}
+.material-group .scroll-element  .material-active .btn-group .round-btn:hover{
+  background-color: #b4061f;
+  border-color: #b4061f;
+  box-shadow: 0 0 7px #b4061f;
+  cursor: pointer;
+}
+.material-group .scroll-element  .material-active .btn-group .round-btn:hover:after{
+  color:#fff;
+}
+.material-group .scroll-element  .box-material .btn-group .round-btn::after{
+  content: 'x';
+  position: absolute;
+  top: 2px;
+  margin-left: .35rem;
+  font-size: 14px;
+  font-weight: 100;
+}
+
+/*btn */
+.btn-row{
+  margin-top:4em;
+  margin-bottom: 5.5rem;
+}
+.btn-done{
+  background-image: url(arr.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 4.5rem;
+  width: 2rem;
+  display: block;
+  position: absolute;
+  left: 105%;
+  top: auto;
+  bottom: 40%;
+  transition: .2s all;
+}
+.btn-done:hover{
+  cursor: pointer;
+  left: 106%;
+}
+.btn-done:hover:after{
+  color:#fff;
+}
+.btn-done::after{
+  content: '+';
+  color: #db534d;
+  position: absolute;
+  top: 1.5rem;
+  left: .3rem;
+  font-size: 16px;
+  font-weight: 100;
+  transition: .2s all;
+}
+.materials-2{
+  display: inline-block;
+}
+
+.material-basebox .box-material{
+  box-shadow: 0px 0px 0px;
+  border:solid 1px #c2c2c2;
+}
+.material-active .box-material{
+  border: solid 1px #db534d;
+  box-shadow: 0 0 4px #db534d;
+}
+.material-basebox .box-material .btn-group .round-btn{
+  border:solid 1px #c2c2c2;
+}
+.material-basebox .box-material .btn-group .round-btn:hover{
+    box-shadow:0px 0px 2px #c2c2c2;
+    cursor: pointer;
+}
+.material-basebox .form-gray .form-control:focus{
+    box-shadow:0px 0px 2px #c2c2c2;
+}
+
+
+.material-basebox .box-material .btn-group .round-btn::after{
+  color:#c2c2c2;
+}
+.material-active .box-material .btn-group .round-btn{
+    border: solid 1px #db534d;
+}
+.material-active .box-material .btn-group .round-btn::after{
+    color: #db534d;
+}
+.material-basebox .box-material .btn-group .btn-def{
+    border:solid 1px #c2c2c2;
+    color:#c2c2c2;
+}
+.material-basebox .box-material .btn-group .btn-def:hover{
+    box-shadow:0px 0px 2px #c2c2c2;
+}
+.form-check-label-active::before{
+  opacity: 1;
+}
+.form-check-label-unactive::before{
+  opacity: 0;
+}
+
+.material-basebox .box-material .form-control {
+    color: #9d9c9c;
+}
+
+.box-date-work label[class = "error"] {
+    overflow: hidden;
+    width: 0px;
+}
+
+.box-date-work .left-text-tag-act {
+    color: #d80f0f;
+}
+
+.form-gray .error {
+    border-color: #d80f0f;
+    box-shadow: 0px 0px 4px #d80f0f;
+    color: #d80f0f;
+}
+
+.form-gray label[class = "error"] {
+    box-shadow: 0px 0px 0px #b4061f;
+}
+
+.box-date-active-work .form-dt {
+    color: #d80f0f;
+    box-shadow: 0px 0px 0px #b4061f;
+    border-color: #c6c6c6;
+}
+
+.box-date-work .error {
+    box-shadow: 0px 0px 0px #b4061f;
+    border-color: #c6c6c6;
+    color: #b4061f;
+}
+
+.materials-2 label[class = "error"] {
+    overflow: hidden;
+    width: 0px;
+}
+
+.material-basebox .error {
+    box-shadow: 0px 0px 3px #8a8686;
+    border-color: #bfbcbc;
+}
+
+.modal-warning .modal-body p{
+    text-align:center;
+}
+
+.modal-warning .modal-body .nuber-zak{
+    color:#d80f0f;
+}
+
+.modal-warning .modal-footer .btn-war {
+    float:right;
+}
+.modal-warning .modal-footer .btn-def{
+    margin-left:0px;
+}
+
+.modal-warning .modal-footer .btn {
+    width: 9rem;
+}
+
+.modal-footer .btn-box {
+    padding: 0px 2.5rem;
+}
+
+.modal-msg .modal-footer .btn {
+    display: block;
+    margin: 0px auto;
+}
+
+.modal-msg .number-zak {
+    color: #d80f0f;
+}
+
+.modal-msg .error {
+    color: #d80f0f;
+}
+
+.btn-footer-aherf:hover {
+    text-decoration: none;
+}
+
+/*load*/
+.load-box {
+    position: absolute;
+    height: 900px;
+    top: 0px;
+    width: 80%;
+    z-index: 99;
+    background-color: rgba(255, 255, 255,0.8);
+    transition: all .2s;
+}
+.load-box .parent-box {
+    position: absolute;
+    left: 45%;
+    top: 45%;
+}
+
+#box-stay-load {
+    display:none;
+}
+
+#result {
+    width:-webkit-fill-available;
+}

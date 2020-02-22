@@ -1,0 +1,351 @@
+﻿@{
+    ViewBag.Title = "History";
+}
+@section Style{
+    @Styles.Render("~/Content/css/history-sidebar.css")
+    @Styles.Render("~/Content/css/history-main.css")
+    @Styles.Render("~/Content/css/test-history.css")
+}
+
+@section Script{
+    @Scripts.Render("~/Scripts/js/modal.js")
+}
+
+@Html.Action("setParam", "Home", new { nameMainView = "ListHistory" })
+<div class="container-fluid container-content">
+    <div class="row">
+        <div class="col-1 col-box-burger">
+            <button class="btn btn-gan static-top-btn" id="sidebar-click">
+                <span class="line-l"></span>
+                <span class="line-l"></span>
+                <span class="line-l"></span>
+            </button>
+
+            <spam class="col-js-22" id="box-sidebar-top"></spam>
+        </div>
+        <div class="col-11 col-box-content">
+            <div class="container-fluid">
+                <h3 class="title-history">История изделий</h3>
+                <div class="row box-js base-box-form" id="sidebar-filter-result">
+
+                    @Html.Action("ListHistory", "Sidebar")
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- More Sidebar -->
+<div class="context-sidebar" id="hide-add">
+    <div class="group-side-context">
+        <div class="close-box">
+            <button class="close-btn" id="close">х</button>
+        </div>
+
+        <div class="filter-box">
+            <form action="" class="search-form">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Введите номер или название" id="search-form" aria-label="Username" aria-describedby="basic-addon1">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text search-btn" id="search-btn">
+                            <svg version="1.1" class="icon-sh" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                 viewBox="0 -3 60.966 60.966" xml:space="preserve">
+                            <path d="M51.704,51.273L36.845,35.82c3.79-3.801,6.138-9.041,6.138-14.82c0-11.58-9.42-21-21-21s-21,9.42-21,21s9.42,21,21,21
+                    	c5.083,0,9.748-1.817,13.384-4.832l14.895,15.491c0.196,0.205,0.458,0.307,0.721,0.307c0.25,0,0.499-0.093,0.693-0.279
+                    	C52.074,52.304,52.086,51.671,51.704,51.273z M21.983,40c-10.477,0-19-8.523-19-19s8.523-19,19-19s19,8.523,19,19
+                    	S32.459,40,21.983,40z" /></svg>
+                        </span>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- more sidebar filter -->
+        <div class="hiden-box" id="form-edit">
+            <div class="all-filter-box">
+                <div class="col-12">
+                    <div class="row">
+
+                        <div class="col-12 filter-styles">
+                            <div class="form-group" style="margin-bottom: 1rem;">
+                                <label>Цена:</label>
+                            </div>
+                            <div class="form-group">
+                                <div id="slider-range"></div>
+                                <div class="group-price">
+                                    <div class="col-12">
+                                        <div class="row">
+                                            <div class="col-3 col-2m"><span class="price" id="min">500</span></div>
+                                            <div class="col-6 col-2m"><span class="range" id="range"></span></div>
+                                            <div class="col-3 col-2m"><span class="price" id="max">1 000000</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group" style="margin-top:2rem;">
+                                <input type="text" class="form-control" id="edit-price" placeholder="20000-100000">
+                                <span style="display:none" id="first">500</span><span style="display:none" id="last">100000</span>
+                            </div>
+                        </div>
+
+                        <div class="col-12 filter-styles">
+                            <div class="form-group">
+                                <label>Дата проведения работ:</label>
+                            </div>
+                        </div>
+                        <div class="col-6 form-group-sp">
+                            <div class="box-date-work">
+                                <span class="left-text-tag">Oт:</span>
+                                <input type="text" class="form-control form-filter-text range-date" id="date-from" placeholder="17.01.2019">
+                            </div>
+                        </div>
+                        <div class="col-6 form-group-sp">
+                            <div class="box-date-work">
+                                <span class="left-text-tag">До:</span>
+                                <input type="text" class="form-control form-filter-text range-date" id="date-to" placeholder="27.01.2019">
+                            </div>
+                        </div>
+
+                        <div class="col-12 filter-styles">
+                            <div class="form-group">
+                                <label>Дата приема заказа:</label>
+                                <input type="text" class="form-control form-filter-text" id="date-register" placeholder="05.11.2017">
+                            </div>
+                        </div>
+
+                        <div class="col-12 filter-styles">
+                            <div class="form-group">
+                                <label>ФИО заказчика:</label>
+                                <input type="text" class="form-control form-filter-text" id="fio-customer" placeholder="Иванов Иван Иванович">
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <span class="dark-bg"></span>
+</div>
+<form id="form0"></form>
+<div id="modal-result">
+    <div class="mat-basebox mat-basebox-main margin12 margin13" style="width:max-content;height: auto;display:none;" id="material-active">
+
+        <div class="mat-box margin11" style="margin-left: 0.5rem;">
+            <input type="text" class="mat-con" id="nameMaterial" placeholder="Название материала" name="NameMaterialCr">
+        </div>
+        <div class="mat-box margin11">
+            <input type="text" class="mat-con" id="count" placeholder="Количество" name="CoutMaterialCr">
+        </div>
+        <div class="mat-box margin11">
+            <input type="text" class="mat-con" id="price" placeholder="Цена" name="PriceMaterialCr">
+        </div>
+
+        <!-- act -->
+        <div class="mat-box padding1">
+            <textarea type="text" class="mat-con" id="coment" placeholder="коментарий" name="ComentMaterialCr" style="height:28px"></textarea>
+        </div>
+    </div>
+</div>
+
+<div class="box-modas" id="msg">
+    <div class="modals context">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Заказ №<span class="number-zak" id="num-prod"></span></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="context-msg"></p>
+            </div>
+            <div class="modal-footer">
+                <div class="col-12 btn-box">
+                    <span class="btn mb-2 btn-def" id="ok">Ок</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <span class="dark"></span>
+</div>
+
+@*@section scripts
+{
+    <script type="text/javascript">
+        var pageNo = 1;
+        var isPageLoad = true;
+        var h = $(".container-fluid").css("height");
+
+        $(window).scroll(function () {
+            if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+                if (isPageLoad) {
+                    $("#load-hist").show();
+
+                    $.ajax({
+                        url: '/History/History',
+                        data: { page: pageNo },
+                        success: function (data) {
+                            $('#sidebar-filter-result').append(data);
+                            pageNo++;
+                            $("#load-hist").hide();
+                            if ($.trim(data) == '') {
+                                isPageLoad = false;
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    </script>
+}*@
+
+<script>
+    function scrollRound(val) {
+        return Math.floor(val / 100) * 100;
+    }
+
+    $(window).scroll(function () {
+        if (@ViewBag.Count > $('.car-box').length) {
+            if (scrollRound($(window).scrollTop()) == scrollRound(($(document).height() - $(window).height()) - $('#foot').height())) {
+                $.ajax({
+                    url: "@Url.Action("pageCount", "Home")",
+                    type: "POST",
+                    contentType: 'application/json',
+                    data: JSON.stringify({ start: true }),
+                    success: function (data) {
+                        $("#sidebar-filter-result").html(data);
+                    }
+                });
+            }
+        }
+    });
+</script>
+
+<script>
+    function getMsgHistory(msg) {
+        $(".number-zak").text($("input[name = ProductId]").val());
+        $("#context-msg").text(msg);
+
+        ShowMsg();
+    }
+
+    $(document).on('click', '.close', function () {
+        HideMsg();
+    });
+
+    $(document).on('click', '.close', function () {
+        HideDel();
+    });
+
+    $(document).on('click', '#ok', function () {
+        HideMsg();
+    });
+
+
+    $(document).on('click', '#delete-moda', function () {
+        ShowDel();
+    });
+    $(document).on('click', '#no', function () {
+        HideDel();
+    });
+</script>
+
+
+
+<script>
+
+    $(document).on('click', '.car-box', function () {
+
+        var id = $(this).children(".id-cart-box").val();
+
+        $.ajax({
+            url: "@Url.Action("MainHistory")?id=" + id,
+            type: 'GET',
+            contentType: 'application/json',
+
+            success: function (data) {
+                $("#modal-result").html(data);
+                $("#modal-history").modal('show');
+
+                selectFirst();
+
+                if ($("input[name = CheckPay]").val() == "True") {
+                    $(".form-check-label-unactive").toggleClass("form-check-label-unactive form-check-label-active");
+                }
+
+                $("#form0").validate({
+                    ProductName: {
+                        Empty: true
+                    },
+                    FIO: {
+                        Empty: true
+                    },
+                    Email: {
+                        Email: true
+                    },
+                    PhoneNumber: {
+                        Phone: true
+                    },
+                    DateStart: {
+                        Date: true
+                    },
+                    DateEnd: {
+                        Date: true
+                    },
+                    DateRegister: {
+                        Date: true
+                    },
+                    PriceWorkInner: {
+                        NumberFloat: true
+                    },
+                    PriceWorkOuter: {
+                        NumberFloat: true
+                    },
+                    PriceCustomer: {
+                        NumberFloat: true
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#search-btn").click(function () {
+            GetAllVal(this);
+        });
+
+        $(".form-filter-text").keyup(function () {
+            GetAllVal(this);
+        });
+
+        $("#slider-range").on("slidechange", function () {
+            GetAllVal(this);
+        });
+    });
+</script>
+
+<script>
+    $(document).on('click', "#delete-table-db", function () {
+        var val = $("#ProductId").attr('placeholder').substring(1, $("#ProductId").attr('placeholder').length);
+        $("#myModal").modal('hide');
+        $("#box-stay-load").css({ "display": "block" });
+
+        $.ajax({
+            url: "/Home/DeleteDbTables?id=" + val,
+            type: 'GET',
+            contentType: 'application/json',
+
+            success: function (data) {
+                HideDel();
+                $("#modal-history").modal('hide');
+                $("#sidebar-filter-result").html(data);
+                $("#box-stay-load").css({ "display": "none" });
+            }
+        });
+    });
+</script>

@@ -1,0 +1,14 @@
+﻿@model StudioWeb.Models.Product
+<div class="list-box">
+    <div class="box-base">
+        <h5>@Model.ProductName</h5>
+        <span class="number">№@Model.ProductId</span>
+    </div>
+
+    <span class="data">дата пров. работ: @Model.DateStart.ToShortDateString() - @Model.DateEnd.ToShortDateString()</span>
+
+    <div class="box-dop">
+        <span class="data-check">@Model.DateRegister.ToShortDateString()</span>
+        <span class="price">@Model.PriceCustomer р</span>
+    </div>
+</div>

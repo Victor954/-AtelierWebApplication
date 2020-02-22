@@ -1,0 +1,34 @@
+﻿@using StudioWeb.Models
+@model ICollection<Product>
+
+@if (Model.Count != 0)
+{
+    foreach (Product p in Model)
+    {
+
+        <div class="col-xl-3 col-md-4 col-sm-6 col-6 col-cart">
+            <div class="car-box">
+                <input class="id-cart-box" type="hidden" value="@p.ProductId"/>
+                <h3>@p.ProductName</h3>
+                <div class="scroll-cart">
+                    <p>Заказчик:</p>
+                    <p>@p.Customer.FIO:</p>
+                    <p>@p.Customer.Email:</p>
+                    <p>Телефон:@p.Customer.PhoneNumber:</p>
+                </div>
+                <div class="date-work">
+                    <span class="date-title">Дата пров. работ:</span>
+                    <span class="date-num">@p.DateStart.ToShortDateString() - @p.DateEnd.ToShortDateString()</span>
+                </div>
+                <div class="dop-context">
+                    <span class="date">@p.DateRegister.ToShortDateString()</span>
+                    <span class="price">@p.PriceCustomer<span>р</span></span>
+                </div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <span class="non-result-his">Не найдено результатов</span>
+}

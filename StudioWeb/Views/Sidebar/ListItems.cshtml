@@ -1,0 +1,28 @@
+﻿@using StudioWeb.Models
+@model ICollection<Product>
+
+@if (Model.Count != 0)
+{
+    foreach (Product p in Model)
+    {
+        string nameClass = (ViewBag.idSelect == p.ProductId) ? "active-list-box" : "";
+
+        <div class="list-box @nameClass">
+            <div class="box-base">
+                <h5>@p.ProductName</h5>
+                <span class="number">№@p.ProductId</span>
+            </div>
+
+            <span class="data">дата пров. работ: @p.DateStart.ToShortDateString() - @p.DateEnd.ToShortDateString()</span>
+
+            <div class="box-dop">
+                <span class="data-check">@p.DateRegister.ToShortDateString()</span>
+                <span class="price">@p.PriceCustomer<span>р</span></span>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <span class="non-result">Не найдено результатов</span>
+}

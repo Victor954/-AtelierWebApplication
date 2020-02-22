@@ -1,0 +1,837 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<!-- Sidebar and context -->
+@Html.Action("setParam", new { nameMainView = "ListItems" })
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-xl-3 col-sm-1 d-none d-xl-block box-sidebar" style="padding:0rem; position:relative">
+            <div class="box-none" id="box-fixed">
+                <!-- sidebar filter -->
+                <div class="filter-box">
+                    <form action="" class="search-form">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Введите номер или название" id="search-form" aria-label="Username" aria-describedby="basic-addon1">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text search-btn" id="search-btn">
+                                    <svg version="1.1" class="icon-sh" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         viewBox="0 -3 60.966 60.966" xml:space="preserve">
+                                    <path d="M51.704,51.273L36.845,35.82c3.79-3.801,6.138-9.041,6.138-14.82c0-11.58-9.42-21-21-21s-21,9.42-21,21s9.42,21,21,21
+                    	c5.083,0,9.748-1.817,13.384-4.832l14.895,15.491c0.196,0.205,0.458,0.307,0.721,0.307c0.25,0,0.499-0.093,0.693-0.279
+                    	C52.074,52.304,52.086,51.671,51.704,51.273z M21.983,40c-10.477,0-19-8.523-19-19s8.523-19,19-19s19,8.523,19,19
+                    	S32.459,40,21.983,40z" /></svg>
+                                </span>
+                                <span class="input-group-text edit-btn" id="edit-btn">
+                                    <svg version="1.1" class="icon-ed" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                         viewBox="0 0 478.703 478.703" xml:space="preserve">
+                                    <g>
+                                    <path d="M454.2,189.101l-33.6-5.7c-3.5-11.3-8-22.2-13.5-32.6l19.8-27.7c8.4-11.8,7.1-27.9-3.2-38.1l-29.8-29.8
+                      			c-5.6-5.6-13-8.7-20.9-8.7c-6.2,0-12.1,1.9-17.1,5.5l-27.8,19.8c-10.8-5.7-22.1-10.4-33.8-13.9l-5.6-33.2
+                      			c-2.4-14.3-14.7-24.7-29.2-24.7h-42.1c-14.5,0-26.8,10.4-29.2,24.7l-5.8,34c-11.2,3.5-22.1,8.1-32.5,13.7l-27.5-19.8
+                      			c-5-3.6-11-5.5-17.2-5.5c-7.9,0-15.4,3.1-20.9,8.7l-29.9,29.8c-10.2,10.2-11.6,26.3-3.2,38.1l20,28.1
+                      			c-5.5,10.5-9.9,21.4-13.3,32.7l-33.2,5.6c-14.3,2.4-24.7,14.7-24.7,29.2v42.1c0,14.5,10.4,26.8,24.7,29.2l34,5.8
+                      			c3.5,11.2,8.1,22.1,13.7,32.5l-19.7,27.4c-8.4,11.8-7.1,27.9,3.2,38.1l29.8,29.8c5.6,5.6,13,8.7,20.9,8.7c6.2,0,12.1-1.9,17.1-5.5
+                      			l28.1-20c10.1,5.3,20.7,9.6,31.6,13l5.6,33.6c2.4,14.3,14.7,24.7,29.2,24.7h42.2c14.5,0,26.8-10.4,29.2-24.7l5.7-33.6
+                      			c11.3-3.5,22.2-8,32.6-13.5l27.7,19.8c5,3.6,11,5.5,17.2,5.5l0,0c7.9,0,15.3-3.1,20.9-8.7l29.8-29.8c10.2-10.2,11.6-26.3,3.2-38.1
+                      			l-19.8-27.8c5.5-10.5,10.1-21.4,13.5-32.6l33.6-5.6c14.3-2.4,24.7-14.7,24.7-29.2v-42.1
+                      			C478.9,203.801,468.5,191.501,454.2,189.101z M451.9,260.401c0,1.3-0.9,2.4-2.2,2.6l-42,7c-5.3,0.9-9.5,4.8-10.8,9.9
+                      			c-3.8,14.7-9.6,28.8-17.4,41.9c-2.7,4.6-2.5,10.3,0.6,14.7l24.7,34.8c0.7,1,0.6,2.5-0.3,3.4l-29.8,29.8c-0.7,0.7-1.4,0.8-1.9,0.8
+                      			c-0.6,0-1.1-0.2-1.5-0.5l-34.7-24.7c-4.3-3.1-10.1-3.3-14.7-0.6c-13.1,7.8-27.2,13.6-41.9,17.4c-5.2,1.3-9.1,5.6-9.9,10.8l-7.1,42
+                      			c-0.2,1.3-1.3,2.2-2.6,2.2h-42.1c-1.3,0-2.4-0.9-2.6-2.2l-7-42c-0.9-5.3-4.8-9.5-9.9-10.8c-14.3-3.7-28.1-9.4-41-16.8
+                      			c-2.1-1.2-4.5-1.8-6.8-1.8c-2.7,0-5.5,0.8-7.8,2.5l-35,24.9c-0.5,0.3-1,0.5-1.5,0.5c-0.4,0-1.2-0.1-1.9-0.8l-29.8-29.8
+                      			c-0.9-0.9-1-2.3-0.3-3.4l24.6-34.5c3.1-4.4,3.3-10.2,0.6-14.8c-7.8-13-13.8-27.1-17.6-41.8c-1.4-5.1-5.6-9-10.8-9.9l-42.3-7.2
+                      			c-1.3-0.2-2.2-1.3-2.2-2.6v-42.1c0-1.3,0.9-2.4,2.2-2.6l41.7-7c5.3-0.9,9.6-4.8,10.9-10c3.7-14.7,9.4-28.9,17.1-42
+                      			c2.7-4.6,2.4-10.3-0.7-14.6l-24.9-35c-0.7-1-0.6-2.5,0.3-3.4l29.8-29.8c0.7-0.7,1.4-0.8,1.9-0.8c0.6,0,1.1,0.2,1.5,0.5l34.5,24.6
+                      			c4.4,3.1,10.2,3.3,14.8,0.6c13-7.8,27.1-13.8,41.8-17.6c5.1-1.4,9-5.6,9.9-10.8l7.2-42.3c0.2-1.3,1.3-2.2,2.6-2.2h42.1
+                      			c1.3,0,2.4,0.9,2.6,2.2l7,41.7c0.9,5.3,4.8,9.6,10,10.9c15.1,3.8,29.5,9.7,42.9,17.6c4.6,2.7,10.3,2.5,14.7-0.6l34.5-24.8
+                      			c0.5-0.3,1-0.5,1.5-0.5c0.4,0,1.2,0.1,1.9,0.8l29.8,29.8c0.9,0.9,1,2.3,0.3,3.4l-24.7,34.7c-3.1,4.3-3.3,10.1-0.6,14.7
+                      			c7.8,13.1,13.6,27.2,17.4,41.9c1.3,5.2,5.6,9.1,10.8,9.9l42,7.1c1.3,0.2,2.2,1.3,2.2,2.6v42.1H451.9z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    <path d="M239.4,136.001c-57,0-103.3,46.3-103.3,103.3s46.3,103.3,103.3,103.3s103.3-46.3,103.3-103.3S296.4,136.001,239.4,136.001
+                      			z M239.4,315.601c-42.1,0-76.3-34.2-76.3-76.3s34.2-76.3,76.3-76.3s76.3,34.2,76.3,76.3S281.5,315.601,239.4,315.601z" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                      	</g>
+                      </svg>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- more sidebar filter -->
+                <div class="hiden-box d-none d-xl-block" id="form-edit">
+                    <div class="all-filter-box">
+                        <div class="col-12">
+                            <div class="row">
+
+                                <div class="col-12 filter-styles">
+                                    <div class="form-group" style="margin-bottom: 1rem;">
+                                        <label>Цена:</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <div id="slider-range"></div>
+                                        <div class="group-price">
+                                            <div class="col-12">
+                                                <div class="row">
+                                                    <div class="col-3 col-2m"><span class="price" id="min">500</span></div>
+                                                    <div class="col-6 col-2m"><span class="range" id="range"></span></div>
+                                                    <div class="col-3 col-2m"><span class="price" id="max">1 000000</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="margin-top:2rem;">
+                                        <input type="text" class="form-control" id="edit-price" placeholder="20000-100000">
+                                        <span style="display:none" id="first">500</span><span style="display:none" id="last">100000</span>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 filter-styles">
+                                    <div class="form-group">
+                                        <label>Дата проведения работ:</label>
+                                    </div>
+                                </div>
+                                <div class="col-6 form-group-sp">
+                                    <div class="box-date-work">
+                                        <span class="left-text-tag">Oт:</span>
+                                        <input type="text" class="form-control form-filter-text range-date" id="date-from" placeholder="17.01.2019">
+                                    </div>
+                                </div>
+                                <div class="col-6 form-group-sp">
+                                    <div class="box-date-work">
+                                        <span class="left-text-tag">До:</span>
+                                        <input type="text" class="form-control form-filter-text range-date" id="date-to" placeholder="27.01.2019">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 filter-styles">
+                                    <div class="form-group">
+                                        <label>Дата приема заказа:</label>
+                                        <input type="text" class="form-control form-filter-text" id="date-register" placeholder="05.11.2017">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 filter-styles">
+                                    <div class="form-group">
+                                        <label>ФИО заказчика:</label>
+                                        <input type="text" class="form-control form-filter-text" id="fio-customer" placeholder="Иванов Иван Иванович">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- scroll item -->
+                <div class="scroll-box d-none d-xl-block" id="sidebar-filter-result">
+                    @Html.Action("ListItems", "Sidebar")
+                </div>
+
+                <button type="button" name="button" class="btn-add d-none d-xl-block" id="btn-add">
+                    <svg viewBox="0 0 448 448" class="icon-add" xmlns="http://www.w3.org/2000/svg">
+                        <path d="m408 184h-136c-4.417969 0-8-3.582031-8-8v-136c0-22.089844-17.910156-40-40-40s-40 17.910156-40
+                40v136c0 4.417969-3.582031 8-8 8h-136c-22.089844 0-40 17.910156-40 40s17.910156 40 40 40h136c4.417969 0 8 3.582031
+                8 8v136c0 22.089844 17.910156 40 40 40s40-17.910156 40-40v-136c0-4.417969 3.582031-8 8-8h136c22.089844 0 40-17.910156
+                40-40s-17.910156-40-40-40zm0 0" />
+                    </svg>
+                </button>
+            </div>
+            <span class="col-22-top" id="box-stop"></span>
+        </div>
+        <!-- Base content -->
+        <div class="col-xl-9 col-sm-12 col-box-content">
+            <div class="container">
+                <div class="row">
+
+                    <div id="result">
+                        @Html.Action("AddForm")
+                    </div>
+
+                </div>
+                <div class="load-box" id="box-stay-load">
+                    <div class="parent-box">
+                        <div class="windows8">
+                            <div class="wBall" id="wBall_1">
+                                <div class="wInnerBall"></div>
+                            </div>
+                            <div class="wBall" id="wBall_2">
+                                <div class="wInnerBall"></div>
+                            </div>
+                            <div class="wBall" id="wBall_3">
+                                <div class="wInnerBall"></div>
+                            </div>
+                            <div class="wBall" id="wBall_4">
+                                <div class="wInnerBall"></div>
+                            </div>
+                            <div class="wBall" id="wBall_5">
+                                <div class="wInnerBall"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <span class="mouse-hide d-none d-xl-block"></span>
+
+    </div>
+</div>
+
+<div class="modal fade modal-warning modal-msg" id="custom-modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Заказ №<span class="number-zak" id="num-prod"></span></h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="context-msg"></p>
+            </div>
+            <div class="modal-footer">
+                <div class="col-12 btn-box">
+                    <span class="btn mb-2 btn-def" id="ok">Ок</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function getMainForm(objText) {
+        var ObjId = objText.substring(1, objText.length);
+
+        $.ajax({
+            url: "@Url.Action("MainForm")",
+            type: "POST",
+            contentType: 'application/json',
+            data: JSON.stringify({ productId: ObjId }),
+
+            success: function (data) {
+                $('#result').html(data);
+                if ($("input[name = CheckPay]").val() == "True") {
+                    $(".form-check-label-unactive").toggleClass("form-check-label-unactive form-check-label-active");
+                }
+            }
+        });
+    }
+
+$(document).on('click', '.list-box', function () {
+    var objText = $(this).children('.box-base').children("span").text();
+    $(".list-box").removeClass("active-list-box");
+    $(this).addClass("active-list-box");
+
+    getMainForm(objText);
+});
+</script>
+
+<script>
+    $("#btn-add").click(function () {
+        $(".list-box").removeClass("active-list-box");
+        ajaxReq("@Url.Action("AddForm")", "GET", '#result');
+    });
+</script>
+
+<script>
+    $(document).ready(function () {
+        $("#search-btn").click(function () {
+            GetAllVal(this);
+        });
+
+        $(".form-filter-text").keyup(function () {
+            GetAllVal(this);
+        });
+
+        $("#slider-range").on("slidechange", function () {
+            GetAllVal(this);
+        });
+    });
+</script>
+
+<script>
+
+    function addSuccses(msg) {
+        var objText = $("#ProductId").attr('placeholder');
+        getMainForm(objText);
+
+        getMsg(msg);
+    }
+</script>
+
+<script>
+    $(document).keyup(function () {
+        $.ajax({
+            url: "@Url.Action("pageCount")",
+            type: "POST",
+            contentType: 'application/json',
+            data: JSON.stringify({ start: true }),
+            success: function (data) {
+                $("#sidebar-filter-result").html(data);
+            }
+        });
+    });
+</script>
+
+<script>
+    function SasScroll() {
+        var scrollHeight = $("#sidebar-filter-result").prop('scrollHeight');
+        var divHeight = $("#sidebar-filter-result").height();
+
+        var scrollerEndPoint = scrollRound(scrollHeight - divHeight);
+        var divScrollerTop = scrollRound($("#sidebar-filter-result").scrollTop());
+        return (divScrollerTop === scrollerEndPoint);
+    }
+    function scrollRound(val) {
+        return Math.floor(val / 100) * 100;
+    }
+
+    $('#sidebar-filter-result').scroll(function () {
+        if (SasScroll()) {
+            if (@ViewBag.Count > $('.list-box').length) {
+                $.ajax({
+                    url: "@Url.Action("pageCount")",
+                    type: "POST",
+                    contentType: 'application/json',
+                    data: JSON.stringify({ start: true }),
+                    success: function (data) {
+                        $("#sidebar-filter-result").html(data);
+                    }
+                });
+            }
+        };
+    });
+</script>
+
+<script>
+    $(document).on('click', "#delete-table-db", function () {
+        var val = $("#ProductId").attr('placeholder').substring(1, $("#ProductId").attr('placeholder').length);
+        $("#myModal").modal('hide');
+        $("#box-stay-load").css({ "display": "block" });
+
+        $.ajax({
+            url: "/Home/DeleteDbTables?id=" + val,
+            type: 'GET',
+            contentType: 'application/json',
+
+            success: function (data) {
+                $("#myModal").modal('hide');
+                getMsg("Удаление прошло успешно");
+                $("#sidebar-filter-result").html(data);
+                $("#box-stay-load").css({ "display": "none" });
+                ajaxReq("/Home/AddForm", "GET", '#result');
+
+            }
+        });
+    });
+</script>

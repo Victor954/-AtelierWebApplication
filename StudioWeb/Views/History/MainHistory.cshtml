@@ -1,0 +1,211 @@
+﻿@using StudioWeb.Models
+@model Product
+@using (Ajax.BeginForm("EditDbTables", "Home", new AjaxOptions()
+{
+    UpdateTargetId = "sidebar-filter-result",
+    OnSuccess = "getMsgHistory('Сохранение прошло успешно!')",
+    OnFailure = "getMsgErr('Ошибка сохранения!')",
+    //LoadingElementId = "box-stay-load"
+}))
+{
+    <div class="modal fade mod" id="modal-history" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body padding1">
+                    <div class="modal-header xbtn" style="padding: 1rem;">
+                        <button class="close" data-dismiss="modal"><img src="~/Content/css/cancel.png" alt="x" style="vertical-align: middle" /></button>
+                    </div>
+                    <div class="container-fluid padding1">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group form-red">
+                                    <label>Наименование заказа</label>
+                                    <input type="text" class="form-control" id="ProductName" name="ProductName" placeholder="Введите наименование заказа" value="@Model.ProductName">
+                                </div>
+                            </div>
+                            <div class="col-md-4 offset-md-4">
+                                <div class="form-group form-red">
+                                    <label>Номер заказа</label>
+                                    <input type="hidden" value="@Model.ProductId" name="ProductId" />
+                                    <input type="text" class="form-control" id="ProductId" placeholder="№@Model.ProductId" readonly>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row base-box-form">
+                            <div class="col-md-4">
+                                <h5>Заказчик</h5>
+                                <div class="form-group form-gray">
+                                    <label>ФИО заказчика</label>
+                                    <input type="text" class="form-control" id="FIO" name="FIO" placeholder="Введите ФИО заказчика" value="@Model.Customer.FIO">
+                                </div>
+                                <div class="form-group form-gray">
+                                    <label>Email заказчика</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" name="Email" placeholder="Введите email заказчика" value="@Model.Customer.Email">
+                                </div>
+                                <div class="form-group form-gray">
+                                    <label>Телефон заказчика</label>
+                                    <input type="text" class="form-control" id="exampleInputEmail1" name="PhoneNumber" placeholder="Введите телефон заказчика" value="@Model.Customer.PhoneNumber">
+                                </div>
+                            </div>
+                            <div class="col-md-8 material">
+                                <!--тут будет материал-->
+                                <div class="mat-group margin9">
+                                    <div class="scroll-sas">
+
+                                        <div class="mat-basebox mat-basebox-main margin12 margin13" style="width:max-content;height: auto;" id="material-active">
+                                            <input type="hidden" class="id-material" value="" />
+                                            <div class="mat-box margin11" style="margin-left: 0.5rem;">
+                                                <input type="text" class="mat-con" id="nameMaterial" placeholder="Название материала" name="NameMaterialCr">
+                                            </div>
+                                            <div class="mat-box margin11">
+                                                <input type="text" class="mat-con" id="count" placeholder="Количество" name="CoutMaterialCr">
+                                            </div>
+                                            <div class="mat-box margin11">
+                                                <input type="text" class="mat-con" id="price" placeholder="Цена" name="PriceMaterialCr">
+                                            </div>
+
+                                            <!-- act -->
+                                            <div class="mat-box padding1">
+                                                <textarea type="text" class="mat-con" id="coment" placeholder="коментарий" name="ComentMaterialCr" style="height:28px"></textarea>
+                                            </div>
+                                        </div>
+
+                                        @if (Model.Materials.Count != 0)
+                                        {
+                                            foreach (Material m in Model.Materials)
+                                            {
+
+                                                <div class="mat-basebox mat-basebox-state margin12 margin13" id="box-get-@m.MaterialId">
+                                                    <input type="hidden" class="id-material" value="@m.MaterialId" />
+                                                    <div class="mat-box margin11" style="margin-left: 0.5rem;">
+                                                        <input type="text" class="mat-con" id="nameMaterial" placeholder="Название материала" value="@m.NameMaterial" name="NameMaterialCr">
+                                                    </div>
+                                                    <div class="mat-box margin11">
+                                                        <input type="text" class="mat-con" id="count" placeholder="Количество" value="@m.CountMaterial" name="CoutMaterialCr">
+                                                    </div>
+                                                    <div class="mat-box margin11">
+                                                        <input type="text" class="mat-con" id="price" placeholder="Цена" value="@m.PriceMaterial" name="PriceMaterialCr">
+                                                    </div>
+
+                                                    <!-- act -->
+                                                    <div class="mat-box">
+                                                        <textarea type="text" class="mat-con" id="coment" placeholder="коментарий" name="ComentMaterialCr" style="height:28px">@m.Coment</textarea>
+                                                    </div>
+                                                </div>
+                                            }
+                                        }
+
+                                        <div class="mat-but-group padding2">
+                                            <span class="btn btn-def margin14" id="mat-save">сохранить</span>
+                                            <span value="add" class="btn btn-def padding2 margin14" id="mat-add">добавить</span>
+                                            <span class="btn btn-war padding2 margin14" id="mat-delet">удалить</span>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row base-box-form padding1">
+                        <div class="col-md-4">
+                            <h5>Сроки заказа</h5>
+                            <div class="form-group form-gray box-date-form">
+                                <label id="width2">Дата проведения работ</label>
+                                <div class="row margin8">
+                                    <div class="box-date-work">
+                                        <span class="left-text-tag">Oт:</span>
+                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="17.01.2019" value="@Model.DateStart.ToShortDateString()" name="DateStart">
+                                    </div>
+                                    <div class="box-date-work" id="margin7">
+                                        <span class="left-text-tag">До:</span>
+                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="27.01.2019" value="@Model.DateEnd.ToShortDateString()" name="DateEnd">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="margin6 form-group form-gray">
+                                <label id="width4">Дата принятия заказа</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="17.01.2019" value="@Model.DateRegister.ToShortDateString()" name="DateRegister">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <h5>Цена заказа</h5>
+                            <div class="form-group form-gray" id="matvey-pidor">
+                                <label id="width5">Стоимость материалов</label>
+                                <input type="text" class="form-control margin1" id="exampleInputEmail1" value="@Model.Price.PriceMaterial" readonly name="PriceMaterial">
+                            </div>
+                            <div class="margin2 form-group form-gray">
+                                <label id="width3">Стоимость собств. работ</label>
+                                <input type="text" class="form-control margin2" id="exampleInputEmail1" placeholder="Стоимость работ" value="@Model.Price.PriceWorkInner" name="PriceWorkInner">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="margin3 form-group form-gray">
+                                <label id="width6">Стоимость сторонних работ</label>
+                                <input type="text" class="form-control margin3" id="exampleInputEmail1" placeholder="Стоимость работ" value="@Model.Price.PriceWorkOuter" name="PriceWorkOuter">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row base-box-form padding1">
+                        <div class="col-md-4">
+                            <h5 id="width7">Общая информация</h5>
+                            <div class="form-group form-gray">
+                                <label id="width1">Заявленная стоимость клиенту</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Стоимость для клиента" value="@Model.PriceCustomer" name="PriceCustomer">
+                            </div>
+                            <div class="form-group form-gray">
+                                <label>Прибыль</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" value="@Model.Price.Profit" readonly name="Profit">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group form-gray margin4">
+                                <label id="width8">Стоимость всех затрат</label>
+                                <input type="text" class="form-control margin4" id="exampleInputEmail1" value="@Model.Price.PriceCount" readonly name="PriceCount">
+                            </div>
+                        </div>
+                        <div class="col-md-4 btn-box">
+                            <input type="hidden" name="CheckPay" value="@Model.CheckPay.ToString()" />
+                            <div class="form-check" id="margin5">
+                                <label class="form-check-label form-check-label-unactive" for="defaultCheck1">Предоплата</label>
+                                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row margin10 padding1">
+                        <div class="col-md-6 offset-md-4 box-mod-btn">
+                            <input type="submit" class="btn mb-2 btn-def" value="сохранить">
+                        </div>
+                        <div class="col-md-6 offset-md-4 box-mod-btn">
+                            <span class="btn btn-primary mb-2 btn-war" id="delete-moda">удалить</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<div class="box-modas" id="delete">
+    <div class="modals context">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5>Запрос на удаление</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Удалить заказ <span class="nuber-zak">№@Model.ProductId </span>?</p>
+            </div>
+            <div class="modal-footer">
+                <div class="col-12 btn-box">
+                    <span class="btn mb-2 btn-def" id="delete-table-db">Да</span>
+                    <span class="btn mb-2 btn-war" id="no">Отмена</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <span class="dark"></span>
+</div>

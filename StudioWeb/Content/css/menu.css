@@ -1,0 +1,87 @@
+/* Red - #db534d */
+/* Dark red - #b4061f */
+/* light gray - #ecebeb*/
+/* Gray - #dfdfdf */
+/* Dark gray - #c6c6c6 */
+/* Black - #404040 */
+
+body{
+  font-family: 'Open Sans', sans-serif;
+  color: #404040;
+  font-size: 15px;
+}
+
+.navbar-custom{
+  border-bottom: 1px solid #dfdfdf;
+}
+
+.navbar-custom .nav-link{
+  color:#404040;
+  transition: .2s all;
+}
+.navbar-custom .nav-link:after{
+  content:'';
+  display: block;
+  width: 0%;
+  margin: 0 auto;
+  height: 1px;
+  background-color: #db534d ;
+  margin-top: .25rem;
+  transition: .2s all;
+}
+
+.navbar-custom .nav-link p{
+  margin: 0px;
+  display: inline-block;
+}
+
+.navbar-custom .nav-link:hover{
+  color:#db534d ;
+  font-size: 15px;
+}
+.navbar-custom .nav-link:hover:after{
+  width: 80%;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link{
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-bottom: .25rem;
+}
+
+.ic-home{
+  width: 20px;
+  fill: #404040;
+  display: none;
+}
+
+/*new navbar*/
+@media(max-width: 991px){
+  .navbar-expand-lg .navbar-nav .nav-item{
+    width: max-content;
+    float: left;
+  }
+  .navbar-expand-lg .navbar-nav{
+    display: inline-block;
+  }
+  .navbar-custom{
+    background-color: #fff;
+    position: fixed;
+    width: 100%;
+    z-index: 9;
+    box-shadow: 0px 0px 1px #efefef;
+  }
+}
+@media(max-width: 520px){
+  .navbar-expand-lg .navbar-nav .nav-link{
+    font-size: .8pc;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .ic-home{
+    display: block;
+  }
+  .navbar-custom .nav-link p{
+    display: none;
+  }
+}

@@ -1,0 +1,194 @@
+﻿@using (Ajax.BeginForm("AddDbTables", new AjaxOptions() { UpdateTargetId = "sidebar-filter-result" ,
+    OnSuccess = "addSuccses('Добавление прошло успешно!')",
+    OnFailure = "getMsgErr('Ошибка добавления!')",
+    LoadingElementId = "box-stay-load"
+}))
+{
+<!-- Name and Number -->
+<div class="col-12" style="margin-top:4.5rem;">
+    <div class="row num-js">
+        <div class="col-xl-3 col-md-4 col-sm-4 col-12 col-js">
+            <div class="form-group form-red">
+                <label>Наименование заказа</label>
+                <input type="text" class="form-control" id="ProductName" name="ProductName" placeholder="Введите наименование заказа">
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-4 col-sm-4 col-12 offset-xl-6 offset-md-4 offset-sm-4 col-js">
+            <div class="form-group form-red">
+                <label>Номер заказа</label>
+                <input type="text" class="form-control" id="ProductId" placeholder="№@ViewBag.Count" readonly>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- More forms -->
+<div class="col-12">
+    <div class="row base-box-form">
+        <div class="col-xl-3 col-md-4 col-sm-12 col-12 col-js-auto">
+
+            <h5>Заказчик</h5>
+            <div class="form-group form-gray">
+                <label>ФИО заказчика</label>
+                <input type="text" class="form-control required" id="FIO" placeholder="Введите ФИО заказчика" name="FIO">
+            </div>
+            <div class="form-group form-gray">
+                <label>Email заказчика</label>
+                <input type="text" class="form-control" id="inputEmail" placeholder="Введите email заказчика" name="Email">
+            </div>
+            <div class="form-group form-gray">
+                <label>Телефон заказчика</label>
+                <input type="text" class="form-control" id="PhoneNumber" placeholder="Введите телефон заказчика" name="PhoneNumber">
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-4 col-sm-12 col-12 col-center col-js-auto">
+
+            <h5>Сроки заказа</h5>
+            <div class="form-group form-gray box-date-form">
+                <label>Дата проведения работ</label>
+                <div class="box-date-work">
+                    <span class="left-text-tag anim-form-un">Oт:</span>
+                    <input type="text" class="form-control form-dt" id="DateStart" placeholder="17.01.2019" name="DateStart">
+                </div>
+                <div class="box-date-work">
+                    <span class="left-text-tag anim-form-un">До:</span>
+                    <input type="text" class="form-control form-dt" id="DateEnd" placeholder="27.01.2019" name="DateEnd">
+                </div>
+                <div class="form-group form-gray">
+                    <label>Дата принятия заказа</label>
+                    <input type="text" class="form-control" id="DateRegister" placeholder="17.01.2019" value="@DateTime.Now.ToShortDateString()" name="DateRegister">
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-4 col-sm-12 col-12 col-center col-js-auto">
+
+            <h5>Цена заказа</h5>
+            <div class="form-group form-gray form-price">
+                <label>Стоимость материалов</label>
+                <input type="text" class="form-control" id="PriceMaterial" readonly placeholder="0" name="PriceMaterial">
+            </div>
+            <div class="form-group form-gray form-price">
+                <label>Стоимость собств. работ</label>
+                <input type="text" class="form-control" id="PriceWorkInner" placeholder="Стоимость работ" name="PriceWorkInner">
+            </div>
+            <div class="form-group form-gray form-price">
+                <label>Стоимость сторон. работ</label>
+                <input type="text" class="form-control" id="PriceWorkOuter" placeholder="Стоимость работ" name="PriceWorkOuter">
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-12 col-sm-12 col-12 col-js-auto box-js" style="position:relative">
+            <h5>Материалы</h5>
+            <div class="form-gray material-group">
+                <div class="scroll-element" id="scroll-materials">
+                    @if (ViewBag.Materials != null) {
+
+                        foreach (StudioWeb.Models.Material m in ViewBag.Materials)
+                        {
+                    <div class="material-basebox materials-2" id="box-get-@m.MaterialId">
+                        <div class="box-material">
+                            <input type="hidden" class="id-material" value="@m.MaterialId" />
+                            <label>Материал</label>
+                            <input type="text" class="form-control" id="nameMaterial" name="NameMaterialCr" placeholder="Название материала" value="@m.NameMaterial">
+
+                            <span class="group-form">
+                                <input type="text" class="form-control" id="count" name="CoutMaterialCr" placeholder="Количество" value="@m.CountMaterial">
+                                <input type="text" class="form-control" id="price" name="PriceMaterialCr" placeholder="Цена" value="@m.PriceMaterial">
+                            </span>
+
+                            <textarea type="text" rows="5" class="form-control com" name="ComentMaterialCr" id="coment" placeholder="коментарий">@m.Coment</textarea>
+
+                            <div class="btn-group">
+                                <span class="btn btn-def dtn-saveCh">сохранить</span>
+                                <span class="round-btn dtn-remove"></span>
+                            </div>
+
+                        </div>
+                    </div>
+                        }
+                    }
+                    <!-- act -->
+                    <div class="material-active materials-2" id="material-active">
+                        <div class="box-material">
+                            <input type="hidden" class="id-material" value="@ViewBag.MaterialsCount" />
+                            <label>Материал</label>
+                            <input type="text" class="form-control" id="nameMaterial" name="NameMaterialCr" placeholder="Название материала">
+
+                            <span class="group-form">
+                                <input type="text" class="form-control" id="count" name="CoutMaterialCr" placeholder="Количество">
+                                <input type="text" class="form-control" id="price" name="PriceMaterialCr"  placeholder="Цена">
+                            </span>
+
+                            <textarea type="text" rows="5" class="form-control com" id="coment" name="ComentMaterialCr"  placeholder="коментарий"></textarea>
+
+                            <div class="btn-group">
+                                <span class="btn btn-def">сохранить</span>
+                                <span class="round-btn" id="clear-material"></span>
+                            </div>
+                            <span class="btn-done" id="btn-done"></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- result -->
+<div class="col-12">
+    <div class="row base-box-form">
+        <div class="col-12">
+            <h5>Общая информация</h5>
+        </div>
+
+        <div class="col-12 col-xl-3 col-md-4 col-sm-4">
+            <div class="form-group form-gray form-more">
+                <label>Стоимость пос. клиенту</label>
+                <input type="text" class="form-control" id="PriceCustomer" placeholder="Стоимость для клиента" name="PriceCustomer">
+            </div>
+        </div>
+        <div class="col-12 col-xl-3 col-md-4 col-sm-4 col-center">
+            <div class="form-group form-gray form-more">
+                <label>Стоимость всех затрат</label>
+                <input type="text" class="form-control" id="PriceCount" placeholder="0" readonly name="PriceCount">
+            </div>
+        </div>
+        <div class="col-12 col-xl-3 col-md-4 col-sm-4 col-center">
+            <div class="form-group form-gray form-more">
+                <label>Прибыль</label>
+                <input type="text" class="form-control" id="Profit" placeholder="0" readonly name="Profit">
+            </div>
+        </div>
+
+        <div class="col-3"></div>
+    </div>
+</div>
+
+<!-- btn group -->
+<div class="col-12">
+    <div class="row btn-row">
+        <input type="hidden" name="CheckPay" value="False"/>
+        <div class="col-5 btn-box d-none d-xl-block">
+            <span class="btn mb-2 btn-war" id="btn-clear">очистить</span>
+            <input type="submit" class="btn mb-2 btn-def"  id="add-tables" value="добавить"/>
+        </div>
+
+        <div class="col-xl-7 col-md-9 col-sm-6 col-6 btn-box col-m-12 d-block d-sm-none d-md-none d-xl-none sx-pr">
+            <div class="form-check">
+                <label class="form-check-label form-check-label-unactive" for="defaultCheck1">Предоплата</label>
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="">
+            </div>
+        </div>
+
+        <div class="col-5 col-md-3 col-sm-6 col-6 btn-box d-block d-xl-none col-m-12">
+            <input type="submit" class="btn mb-2 btn-def" id="add-tables" value="добавить">
+        </div>
+
+        <div class="col-xl-7 col-md-9 col-sm-6 col-6 btn-box col-m-12 d-none d-sm-block d-md-block d-xl-block">
+            <div class="form-check">
+                <label class="form-check-label form-check-label-unactive" for="defaultCheck1">Предоплата</label>
+                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1" name="">
+            </div>
+        </div>
+    </div>
+
+</div>
+}

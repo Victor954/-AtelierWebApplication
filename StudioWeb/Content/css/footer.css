@@ -1,0 +1,78 @@
+/* Red - #db534d */
+/* Dark red - #b4061f */
+/* light gray - #aeaeae*/
+/* Gray - #c6c6c6 */
+/* Dark gray - #9d9c9c */
+/* Black - #404040 */
+
+/* line 1 */
+.box-line-1{
+  border-top:1px solid #dfdfdf;
+}
+.line-1 {
+  margin:4rem 0rem;
+}
+.line-1 .group-box{
+  position: relative;
+  height: 3rem;
+  width: 17rem;
+  margin: 0px auto;
+  margin-bottom: 1.7rem;
+}
+.line-1 h2{
+  font-style: italic;
+  font-weight: 700;
+  position: absolute;
+  z-index: 2;
+}
+.line-1 .box-fade{
+  display: block;
+  width: 10rem;
+  height: 1.5rem;
+  background-color: #db534d;
+  opacity: 0.5;
+  position: absolute;
+  left: 7rem;
+  top: 1.3rem;
+}
+.line-1 .btn-footer{
+  margin: 0px auto;
+  display: block;
+  box-shadow: 3px 4px #db534d;
+  background-color: #fff;
+  border-color: #db534d;
+}
+.line-1 .btn-footer:hover{
+  background-color: #db534d;
+  color:#fff;
+  box-shadow:3px 4px #b4061f;
+}
+.line-1 .btn-footer:active{
+  background-color: #9f071d;
+  border-color: #9f071d;
+  color:#fff;
+  box-shadow:2px 3px #b4061f;
+}
+/* line 2 */
+.footer-title{
+  font-weight: 700;
+  font-size: 18px;
+  font-style: italic;
+}
+.footer-text{
+  float: right;
+  font-size: 14px;
+}
+.box-footer{
+  padding: 1.2rem 0rem;
+  background-color: #f1f1f1;
+  border-top: 1px solid #dfdfdf;
+}
+
+/*base ебем сетку*/
+.box-footer .col-6{
+  padding-right: 90px;
+}
+.box-footer .col-6:first-child{
+  padding-left: 90px;
+}

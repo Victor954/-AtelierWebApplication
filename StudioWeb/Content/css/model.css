@@ -1,0 +1,1129 @@
+/* Modal border */
+.mod .modal-content {
+    -webkit-border-radius: 9px !important;
+    -moz-border-radius: 9px !important;
+    border-radius: 9px !important;
+}
+
+.mod .modal-lg {
+    max-width: 60%;
+}
+
+/* form-red */
+.mod .form-red {
+}
+
+    .mod .form-red label {
+        font-size: .88pc;
+        color: #db534d;
+        white-space: nowrap;
+    }
+
+    .mod .form-red .form-control {
+        font-size: .75pc;
+        border-radius: 0px;
+        border-style: none;
+        border-bottom: solid 1px #c6c6c6;
+        padding: .2rem 0rem;
+        color: #404040;
+    }
+
+        .mod .form-red .form-control[readonly] {
+            color: #c6c6c6;
+            background-color: inherit;
+        }
+
+        .mod .form-red .form-control:focus {
+            box-shadow: 0px 0px 0px;
+            border-bottom-color: #db534d;
+        }
+
+        .mod .form-red .form-control::placeholder {
+            color: #c6c6c6;
+        }
+
+/* base-box-form */
+
+.mod .base-box-form {
+}
+
+    .mod .base-box-form h5 {
+        font-size: 18px;
+        margin-top: 3rem;
+        margin-bottom: .5rem;
+    }
+
+    .mod .base-box-form .form-more .form-control {
+        width: 90%;
+    }
+
+/* form-gray */
+
+.mod .form-gray {
+    margin-top: 2.5rem;
+}
+
+    .mod .form-gray label {
+        font-size: .88pc;
+        color: #9d9c9c;
+        margin-bottom: .6rem;
+        white-space: nowrap;
+        width: 100%;
+    }
+
+    .mod .form-gray .form-control {
+        font-size: .75pc;
+        border-radius: 8px;
+        border-style: none;
+        border: solid 1px #c2c2c2;
+        padding: .2rem .8rem;
+        color: #404040;
+    }
+
+        .mod .form-gray .form-control[readonly] {
+            background-color: inherit;
+            color: #c6c6c6;
+        }
+
+        .mod .form-gray .form-control:focus {
+            box-shadow: 0 0 4px #db534d;
+            border-color: #db534d;
+        }
+
+        .mod .form-gray .form-control::placeholder {
+            color: #c6c6c6;
+        }
+
+/* box-date */
+
+.mod .box-date-work {
+    display: inline-block;
+    height: auto;
+    width: auto;
+    margin-top: .8rem;
+}
+
+    .mod .box-date-work:last-child {
+        margin-top: .5rem;
+    }
+
+    .mod .box-date-work .left-text-tag {
+        font-size: .75pc;
+        border-bottom: solid 1px #c6c6c6;
+        float: left;
+        padding: .2rem 0rem;
+        padding-right: .2rem;
+        color: #acabab;
+    }
+
+    .mod .box-date-work .form-control {
+        border-radius: 0px;
+        border-style: none;
+        border-bottom: solid 1px #c6c6c6;
+        padding: .2rem 0rem;
+        color: #404040;
+        /*width: auto;*/
+        width: 75%;
+        float: left;
+    }
+
+        .mod .box-date-work .form-control:focus {
+            box-shadow: 0px 0px 0px;
+        }
+
+.mod .box-date-form .form-gray {
+    margin-top: 2rem;
+}
+
+.modal-header {
+    border-style: none;
+}
+
+/* material-group */
+.mod .material-group {
+    position: absolute;
+    z-index: 1;
+    width: 88%;
+}
+
+/* scroll */
+
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #efefef;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background-color: #db534d;
+}
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: #b4061f;
+    }
+
+.scroll-sas::-webkit-scrollbar {
+    height: 7px;
+    position: relative;
+}
+
+.scroll-sas::-webkit-scrollbar-track {
+    background-color: #dfdfdf;
+    border: 1.5px solid #fff;
+    border-right-width: 8px;
+    border-left-width: 8px;
+    width: 3px;
+}
+
+.scroll-sas::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background-color: #db534d;
+}
+
+    .scroll-sas::-webkit-scrollbar-thumb:hover {
+        background-color: #b4061f;
+    }
+
+.scroll-sas {
+    margin-left: 0.3125rem;
+    width: 98.617%;
+    height: 18.125rem;
+    overflow-x: scroll;
+    overflow-y: scroll;
+    position: relative;
+    white-space: nowrap;
+}
+
+.mat-basebox {
+    margin: 0.25rem, 1rem;
+    height: 2.875rem;
+    border-radius: 8px;
+    border-style: none;
+    color: #404040;
+    padding: .5rem;
+    position: relative;
+}
+
+.mat-basebox-state {
+    border: solid 1px #fff;
+    transition: border .3s;
+}
+
+.mat-basebox-active {
+    border: solid 1px #b4061f;
+    padding-bottom: .1rem;
+    transition: border .3s;
+}
+
+.mat-basebox_act {
+    border: solid 1px #db534d;
+    box-shadow: 0 0 3px #898989;
+    border-radius: 8px;
+}
+
+.mat-box {
+    display: inline-block;
+    margin-left: 20px;
+    height: 1px;
+}
+
+.mat-con {
+    font-size: .75pc;
+    border-radius: 8px;
+    border-style: none;
+    border: solid 1px #c2c2c2;
+    padding: .2rem .8rem;
+    color: #404040;
+    outline: none;
+}
+
+    .mat-con:focus {
+        box-shadow: 0 0 4px #db534d;
+        border-color: #db534d;
+    }
+
+.mat-form {
+    display: block;
+    height: 2rem;
+}
+
+.mat-group {
+    margin-top: 3.375rem;
+    margin-left: 0.375rem;
+    width: 41.75rem;
+    height: 19rem;
+    border: solid 1px #c6c6c6;
+    border-radius: 8px;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+    display: block;
+    padding: 0px .8rem;
+}
+
+.mat-but-group {
+    position: fixed;
+    padding: 1rem;
+    width: 55.1%;
+    background-color: #fff;
+    transform: translateY(6.8rem);
+}
+
+    .mat-but-group .btn {
+        width: 9rem;
+        border-radius: 8px;
+        font-size: 12px;
+    }
+
+div.mod .margin8 {
+    margin-top: 0rem;
+    padding-left: 0.9375rem;
+}
+
+    div.mod .margin8 .box-date-work {
+        width: 45%;
+    }
+
+div#margin7 {
+    margin-top: 0.75rem;
+    margin-left: 1rem;
+}
+
+textarea#exampleInputEmail1.mat-con {
+    height: 1.8125rem;
+    top: 0.4375rem;
+}
+
+div.mat-basebox.margin12 {
+    white-space: nowrap;
+    display: block;
+    width: max-content;
+    width: 52.8125rem;
+}
+
+div.mat-box.margin11 {
+    margin-bottom: 0rem;
+    position: relative;
+    top: -10px;
+}
+
+div.mat-basebox.margin12.margin13 {
+    margin-top: .8rem;
+    padding: 0.4375rem 0.5rem;
+    padding-bottom: .1rem;
+    width: max-content;
+    height: auto;
+    /*
+  padding-top: 0.25rem;
+  padding-bottom: 0.25rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  */
+}
+
+.testt {
+    width: 90%;
+    height: 62.5rem;
+}
+
+@media(min-width: 300px) {
+    .mod .modal-lg {
+        max-width: 100%;
+    }
+
+    div.row.margin10 {
+        margin-top: 4rem;
+    }
+
+    span.btn.margin14 {
+        width: 3.5rem;
+        font-size: .6pc;
+    }
+
+    div.mat-but-group.padding2 {
+        top: 47.769rem;
+        padding: 1rem 0.5rem 1rem 0rem;
+        width: 69.6%;
+    }
+
+    span#mat-add.btn.btn-def.padding2 {
+        margin-left: 0.5rem;
+    }
+
+    span#mat-delet.btn.btn-war.padding2 {
+        margin-left: 0.5rem;
+    }
+}
+
+@media(min-width: 445px) {
+    .mod .modal-lg {
+        max-width: 100%;
+    }
+
+    div.row.margin10 {
+        margin-top: 4rem;
+    }
+
+    span.btn.margin14 {
+        width: 6rem;
+        font-size: .7pc;
+    }
+
+    div.mat-but-group.padding2 {
+        top: 47.769rem;
+        padding: 1rem 0.5rem 1rem 0rem;
+        width: 69.6%;
+    }
+
+    span#mat-add.btn.btn-def.padding2 {
+        margin-left: 1.0625rem;
+    }
+
+    span#mat-delet.btn.btn-war.padding2 {
+        margin-left: 1.0625rem;
+    }
+}
+
+@media(min-width: 524px) {
+    .mod .modal-lg {
+        max-width: 96%;
+    }
+
+    span.btn.margin14 {
+        width: 6rem;
+        font-size: .7pc;
+    }
+
+    div.mat-but-group.padding2 {
+        top: 49.3315rem;
+        padding: 1rem 0.5rem 1rem 0rem;
+        width: 69.6%;
+    }
+
+    span#mat-add.btn.btn-def.padding2 {
+        margin-left: 1.0625rem;
+    }
+
+    span#mat-delet.btn.btn-war.padding2 {
+        margin-left: 1.0625rem;
+    }
+
+    div.mod .margin3 {
+        margin-top: 1.5rem;
+    }
+
+    input#exampleInputEmail1.margin3 {
+        margin-top: 0rem;
+    }
+
+    div.mod .margin4 {
+        margin-top: 1.5rem;
+    }
+
+    input#exampleInputEmail1.margin4 {
+        margin-top: 0rem;
+    }
+
+    div#margin5 {
+        margin-top: 1.5rem;
+        padding-left: 3rem;
+    }
+
+    .modal-body.padding1 {
+        padding: 1rem;
+    }
+
+    .container-fluid.padding1 {
+        padding-top: 3rem;
+        padding-right: 3rem;
+        padding-left: 3rem;
+    }
+
+    div.row.base-box-form.padding1 {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    div.row.margin10.padding1 {
+        padding-bottom: 3rem;
+        padding-right: 3rem;
+        padding-left: 3rem;
+    }
+}
+
+@media(min-width: 524px) and (max-width: 768px) {
+    div.mat-group.margin9 {
+        margin-top: 1.9375rem;
+    }
+
+    div.row.margin10 {
+        margin-top: 2.8125rem;
+        margin-left: 6.15625rem;
+    }
+}
+
+@media(min-width: 768px) and (max-width: 1049px) {
+    label#width2 {
+        width: 85%;
+        overflow: hidden;
+    }
+
+    label#width3 {
+        width: 92%;
+        overflow: hidden;
+    }
+
+    label#width4 {
+        width: 75%;
+        overflow: hidden;
+    }
+
+    label#width5 {
+        width: 85%;
+        overflow: hidden;
+    }
+
+    label#width6 {
+        width: 90%;
+        overflow: hidden;
+    }
+
+    h5#width7 {
+        white-space: nowrap;
+        width: 84%;
+        overflow: hidden;
+    }
+
+    label#width1 {
+        width: 90.5%;
+        overflow: hidden;
+    }
+
+    label#width8 {
+        overflow: hidden;
+    }
+
+    div.mod .margin9 {
+        margin-top: 3.25rem;
+        height: 19.4375rem;
+    }
+}
+
+@media(min-width: 768px) {
+    .mod .modal-lg {
+        max-width: 80%;
+    }
+
+    span.btn.margin14 {
+        width: 5rem;
+        font-size: .7pc;
+    }
+
+    div.mat-but-group.padding2 {
+        top: 22.519rem;
+        padding: 1rem 0.5rem 1rem 0rem;
+        width: 47.8%;
+    }
+
+    span#mat-add.btn.btn-def.padding2 {
+        margin-left: 1.0625rem;
+    }
+
+    span#mat-delet.btn.btn-war.padding2 {
+        margin-left: 1.0625rem;
+    }
+
+    div.mod .margin8 {
+        margin-top: -0.75rem;
+        padding-left: 0.9375rem;
+    }
+
+        div.mod .margin8 .box-date-work {
+            width: auto;
+        }
+
+    div#margin7 {
+        margin-top: 0rem;
+        margin-left: 0rem;
+    }
+
+    input#exampleInputEmail1.margin1 {
+        margin-top: 0rem;
+    }
+
+    div.mod .margin2 {
+        margin-top: 4.0625rem;
+    }
+
+    input#exampleInputEmail1.margin2 {
+        margin-top: 0rem;
+    }
+
+    div.mod .margin3 {
+        margin-top: 14.75rem;
+    }
+
+    input#exampleInputEmail1.margin3 {
+        margin-top: 0rem;
+    }
+
+    div.mod .margin4 {
+        margin-top: 6.8125rem;
+    }
+
+    input#exampleInputEmail1.margin4 {
+        margin-top: 0rem;
+    }
+
+    div#margin5 {
+        margin-top: 14.75rem;
+        padding-left: 2.25rem;
+    }
+}
+
+@media(min-width: 1049px) {
+    .mod .modal-lg {
+        max-width: 80%;
+    }
+
+    span.btn.margin14 {
+        width: 7rem;
+        font-size: .7pc;
+    }
+
+    div.mat-but-group.padding2 {
+        top: 22.519rem;
+        padding: 1rem 0.5rem;
+        width: 52.6%;
+    }
+
+    span#mat-add.btn.btn-def.padding2 {
+        margin-left: 1.625rem;
+    }
+
+    span#mat-delet.btn.btn-war.padding2 {
+        margin-left: 1.625rem;
+    }
+
+    div.mod .margin8 {
+        margin-top: 0rem;
+        padding-left: 0.9375rem;
+    }
+
+        div.mod .margin8 .box-date-work {
+            width: auto;
+        }
+
+    div#margin7 {
+        margin-top: 0rem;
+        margin-left: 0rem;
+    }
+
+    input#exampleInputEmail1.margin1 {
+        margin-top: 0.75rem;
+    }
+
+    div.mod .margin2 {
+        margin-top: 4.0625rem;
+    }
+
+    input#exampleInputEmail1.margin2 {
+        margin-top: 0rem;
+    }
+
+    div.mod .margin3 {
+        margin-top: 15.5rem;
+    }
+
+    input#exampleInputEmail1.margin3 {
+        margin-top: 0rem;
+    }
+
+    div.mod .margin4 {
+        margin-top: 6.8125rem;
+    }
+
+    input#exampleInputEmail1.margin4 {
+        margin-top: 0rem;
+    }
+
+    div#margin5 {
+        margin-top: 14.75rem;
+    }
+}
+
+@media(min-width: 1257px) {
+    span.btn.margin14 {
+        width: 9rem;
+        font-size: 12px;
+    }
+
+    .modal-body.padding1 {
+        padding: 1rem;
+    }
+
+    div.mat-but-group.padding2 {
+        top: 22.651rem;
+        padding: 1rem;
+        width: 55%;
+    }
+
+    span#mat-add.btn.btn-def.padding2 {
+        margin-left: 2.25rem;
+    }
+
+    span#mat-delet.btn.btn-war.padding2 {
+        margin-left: 2.25rem;
+    }
+
+    div.mod .margin8 {
+        margin-top: 0rem;
+        padding-left: 0.9375rem;
+    }
+
+        div.mod .margin8 .box-date-work {
+            width: auto;
+        }
+
+    div#margin7 {
+        margin-top: 0rem;
+        margin-left: 0rem;
+    }
+
+    input#exampleInputEmail1.margin1 {
+        margin-top: 0.75rem;
+    }
+
+    div.mod .margin3 {
+        margin-top: 14.3125rem;
+    }
+
+    input#exampleInputEmail1.margin3 {
+        margin-top: 0rem;
+    }
+
+    div.mod .margin6 {
+        margin-top: 1.5625rem;
+    }
+
+    div.mod .margin2 {
+        margin-top: 3.125rem;
+    }
+
+    input#exampleInputEmail1.margin2 {
+        margin-top: 0rem;
+    }
+
+    div.mod .margin4 {
+        margin-top: 6.75rem;
+    }
+
+    input#exampleInputEmail1.margin4 {
+        margin-top: 0.3125rem;
+    }
+
+    div#margin5 {
+        margin-top: 14.75rem;
+    }
+
+    label#width1 {
+        width: 85%;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 1348px) {
+    .mod .modal-lg {
+        max-width: 60%;
+    }
+
+    span.btn.margin14 {
+        width: 7rem;
+        font-size: .7pc;
+    }
+
+    div.mat-but-group.padding2 {
+        top: 22.65rem;
+        padding: 1rem 0.5rem;
+        width: 52%;
+    }
+
+    span#mat-add.btn.btn-def.padding2 {
+        margin-left: 1.625rem;
+    }
+
+    span#mat-delet.btn.btn-war.padding2 {
+        margin-left: 1.625rem;
+    }
+
+    div.mod .margin6 {
+        margin-top: 1.75rem;
+    }
+
+    div.mod .margin3 {
+        margin-top: 12.9rem;
+    }
+
+    input#exampleInputEmail1.margin3 {
+        margin-top: 0rem;
+    }
+
+    input#exampleInputEmail1.margin1 {
+        margin-top: 0.75rem;
+    }
+
+    div.mod .margin2 {
+        margin-top: 1.75rem;
+    }
+
+    input#exampleInputEmail1.margin2 {
+        margin-top: 0rem;
+    }
+
+    div.mod .margin4 {
+        margin-top: 6.8125rem;
+    }
+
+    input#exampleInputEmail1.margin4 {
+        margin-top: 0rem;
+    }
+
+    div#margin5 {
+        margin-top: 14.75rem;
+    }
+
+    div.mod .margin8 .box-date-work {
+        width: 40%;
+    }
+
+    div#margin7 {
+        margin-top: 0.8125rem;
+        margin-left: 1.875rem;
+    }
+
+    label#width1 {
+        width: 100%;
+        overflow: visible;
+    }
+}
+
+@media (min-width: 1700px) {
+    .mod .modal-lg {
+        max-width: 60%;
+    }
+
+    span.btn.margin14 {
+        width: 9rem;
+        font-size: 12px;
+    }
+
+    .modal-body.padding1 {
+        padding: 1rem;
+    }
+
+    div.mat-but-group.padding2 {
+        top: 22.875rem;
+        padding: 1rem;
+        width: 55.1%;
+    }
+
+    span#mat-add.btn.btn-def.padding2 {
+        margin-left: 2.25rem;
+    }
+
+    span#mat-delet.btn.btn-war.padding2 {
+        margin-left: 2.25rem;
+    }
+
+    .container-fluid.padding1 {
+        padding-top: 3rem;
+        padding-right: 3rem;
+        padding-left: 3rem;
+    }
+
+    div.row.base-box-form.padding1 {
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    div.row.margin10.padding1 {
+        padding-bottom: 3rem;
+        padding-right: 3rem;
+        padding-left: 3rem;
+    }
+
+    .mat-con {
+        font-size: .85pc;
+    }
+
+    .mod .form-red .form-control {
+        font-size: .85pc;
+    }
+
+    .mod .form-red label {
+        font-size: 1pc;
+    }
+
+    .mod .form-gray label {
+        font-size: 1pc;
+        margin-bottom: .7rem;
+    }
+
+    .mod .form-gray .form-control {
+        font-size: .85pc;
+    }
+
+    .mod .form-gray label {
+        width: 100%;
+    }
+
+    .mod .form-gray {
+        margin-top: 2rem;
+    }
+
+    .mod .base-box-form h5 {
+        font-size: 20px;
+    }
+
+    .mod .box-date-work .left-text-tag {
+        font-size: .85pc;
+    }
+
+    input#exampleInputEmail1.margin1 {
+        margin-top: 0.6875rem;
+    }
+
+    div.mod .margin2 {
+        margin-top: 1.75rem;
+    }
+
+    input#exampleInputEmail1.margin2 {
+        margin-top: 0.0625rem;
+    }
+
+    div.mod .margin3 {
+        margin-top: 12.9625rem;
+    }
+
+    input#exampleInputEmail1.margin3 {
+        margin-top: 0rem;
+    }
+
+
+    div.mod .margin4 {
+        margin-top: 6.46rem;
+    }
+
+    input#exampleInputEmail1.margin4 {
+        margin-top: 0rem;
+    }
+
+    div#margin5 {
+        margin-top: 14.75rem;
+    }
+
+    div.mod .margin8 {
+        margin-top: 0rem;
+        padding-left: 0.9375rem;
+    }
+
+        div.mod .margin8 .box-date-work {
+            width: 45%;
+        }
+
+    div#margin7 {
+        margin-top: 0.75rem;
+        margin-left: 1rem;
+    }
+
+    div.mod .margin6 {
+        margin-top: 1.75rem;
+    }
+}
+
+
+.mod .form-gray .error {
+    border-color: #d80f0f;
+    box-shadow: 0px 0px 4px #d80f0f;
+    color: #d80f0f;
+}
+.mod .form-gray label[class = "error"] {
+    border-style: none;
+    box-shadow: 0px 0px;
+    padding-left: .7rem;
+    font-size: 0.6rem;
+}
+
+.mod .form-gray .box-date-work .error {
+    box-shadow: 0px 0px;
+}
+.box-date-work label[class = "error"]{
+    overflow:hidden;
+    width:0px;
+}
+.mod .box-date-work .left-text-tag-act {
+    color: #d80f0f;
+    border-bottom: solid 1px #d80f0f;
+}
+
+.mod .form-red label[class = "error"] {
+    padding-left: .7rem;
+    font-size: 0.6rem;
+}
+
+.mat-box .error {
+    border: solid 1px #d80f0f;
+    box-shadow: 0 0 5px #d80f0f;
+}
+
+.mat-box label[class = "error"] {
+    overflow: hidden;
+    width: 0px;
+    border-style:none;
+}
+
+.mat-basebox-active .mat-box .error {
+    border: solid 1px #b4061f;
+    box-shadow: 0 0 5px #b4061f;
+}
+.mat-basebox-active  .mat-box label[class = "error"] {
+    overflow: hidden;
+    width: 0px;
+    border-style: none;
+}
+
+/* Modals */
+
+.box-modas .context {
+    width: 20%;
+    z-index: 99999;
+    position: fixed;
+    /*top: 3rem;*/
+    top: -12rem;
+    left: 40%;
+    opacity:0;
+}
+
+    .box-modas .context .btn-def {
+        display: block;
+        margin: 0px auto;
+    }
+
+.box-modas .dark {
+    opacity: 0;
+    z-index: 9999;
+    display: none
+}
+.box-modas #context-msg{
+    text-align:center;
+}
+
+
+#delete .context {
+    width: 25%;
+    left: 37.5%;
+}
+#delete .context .btn-def{
+    display:inline-block;
+    float:left;
+}
+#msg .modal-header #num-prod {
+    color: #db534d;
+}
+
+#delete .context .btn-war {
+    float: right;
+}
+#delete .modal-body p{
+    text-align:center;
+}
+#delete .modal-body .nuber-zak {
+    color: #db534d;
+}
+
+.box-mod-btn {
+    padding: 0px 4rem;
+}
+
+.box-mod-btn span {
+    margin-top: 1.5rem;
+}
+
+p.mod-text {
+    text-align: center;
+}
+
+
+@media (max-width: 1440px) {
+    .box-modas .context {
+        width: 35%;
+        left: 32.5%;
+    }
+}
+
+@media (max-width: 935px) {
+    .box-modas .context {
+        width: 45%;
+        left: 27.5%;
+    }
+}
+
+@media (max-width: 640px) {
+    .box-modas .context {
+        width: 85%;
+        left: 7.5%;
+    }
+}
+
+
+@media (max-width: 1860px) {
+    #delete .context {
+        width: 28%;
+        left: 36%;
+    }
+}
+
+@media (max-width: 1650px) {
+    #delete .context {
+        width: 30%;
+        left: 35%;
+    }
+}
+
+@media (max-width: 1400px) {
+    #delete .context {
+        width: 40%;
+        left: 30%;
+    }
+}
+
+@media (max-width: 1040px) {
+    #delete .context {
+        width:50%;
+        left: 25%;
+    }
+}
+
+@media (max-width: 935px) {
+    #delete .context {
+        width: 55%;
+        left: 22.5%;
+    }
+}
+@media (max-width: 767px) {
+    #delete .context {
+        width: 75%;
+        left: 12.5%;
+    }
+}
+
+@media (max-width: 640px) {
+    #delete .context {
+        width: 85%;
+        left: 7.5%;
+    }
+}
